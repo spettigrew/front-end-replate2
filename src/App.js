@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import PrivateRoute from "./utils/PrivateRoute";
 import { connect } from "react-redux";
+
 function App() {
  return (
   <main>
@@ -20,7 +21,7 @@ function App() {
    </nav>
    <BrowserRouter>
     <Switch>
-     <Route path="/home" render={props => <SignUp />} />
+     <Route exact path="/" render={props => <SignUp />} />
      <Route
       path="/business/register"
       render={props => <BusinessRegisterApp />}

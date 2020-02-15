@@ -22,7 +22,7 @@ const Volunteerrequestin = props => {
  const vrequestin = e => {
   e.preventDefault();
   axios
-   .post("https://replate2.herokuapp.com//api/volunteers/requestin", requestin)
+   .post("https://replate2.herokuapp.com//api/volunteers/login", requestin)
    .then(res => {
     console.request(res);
     localStorage.setItem("token", res.data.token);

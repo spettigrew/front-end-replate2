@@ -38,7 +38,7 @@ const VolunteerRegister = props => {
   <div>
    <h1>Volunteer Registration Form</h1>
    <p>
-    If you're insterested in becoming a volunteer for Replate, please fill out
+    If you're interested in becoming a volunteer for Replate, please fill out
     the form below.
    </p>
    <div className="volunteer-register-form">
