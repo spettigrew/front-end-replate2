@@ -11,18 +11,18 @@ import {
 } from "reactstrap";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const Volunteerrequestin = props => {
+const VolunteerRequestIn = props => {
  //set local state
- const [requestin, setrequestin] = useState({
+ const [requestIn, setrequestIn] = useState({
   username: "",
   password: ""
  });
 
- //set requestin event
- const vrequestin = e => {
+ //set requestIn event
+ const vRequestIn = e => {
   e.preventDefault();
   axios
-   .post("https://replate2.herokuapp.com//api/volunteers/login", requestin)
+   .post("https://replate2.herokuapp.com//api/volunteers/login", requestIn)
    .then(res => {
     console.request(res);
     localStorage.setItem("token", res.data.token);
@@ -32,8 +32,8 @@ const Volunteerrequestin = props => {
 
  //handle change
  const handleChange = e => {
-  setrequestin({
-   ...requestin,
+  setRequestIn({
+   ...requestIn,
    [e.target.name]: e.target.value
   });
  };
@@ -43,7 +43,7 @@ const Volunteerrequestin = props => {
    <Card>
     <CardBody>
      <CardHeader tag="h3">Volunteer Login</CardHeader>
-     <Form onSubmit={vrequestin}>
+     <Form onSubmit={vRequestIn}>
       <FormGroup>
        <Label for="username" hidden>
         Username{" "}
@@ -68,7 +68,7 @@ const Volunteerrequestin = props => {
         onChange={handleChange}
        />
       </FormGroup>{" "}
-      <Button>request in</Button>
+      <Button>Request In</Button>
      </Form>
     </CardBody>
    </Card>
@@ -76,4 +76,4 @@ const Volunteerrequestin = props => {
  );
 };
 
-export default Volunteerrequestin;
+export default VolunteerRequestIn;
