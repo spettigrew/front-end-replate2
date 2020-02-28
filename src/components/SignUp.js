@@ -48,7 +48,7 @@ export default function SignUp() {
      </Button>
     </Link>
    </div>
-   <footer>Copywrite Replate @ 2020</footer>
+   <footer>Copyright Replate @ 2020</footer>
   </div>
  );
 }
