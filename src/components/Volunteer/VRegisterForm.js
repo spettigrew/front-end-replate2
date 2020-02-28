@@ -21,7 +21,7 @@ const VolunteerRegister = props => {
    .post("https://replate2.herokuapp.com/api/volunteers/register", register)
    .then(res => {
     console.request(res.data);
-    props.history.push("/api/volunteers/register");
+    props.history.push("/register");
    })
    .catch(err => console.log(err));
  };
