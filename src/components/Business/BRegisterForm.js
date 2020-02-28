@@ -22,8 +22,9 @@ const BusinessRegister = props => {
    .post("https://replate2.herokuapp.com/api/businesses/register", register)
    .then(res => {
     console.log(res.data);
+    localStorage.setItem("token", res.data.token)
     console.log(props.history);
-    props.history.push("/businesses/login");
+    props.history.push("/requests");
    })
    .catch(err => console.log(err));
  };
