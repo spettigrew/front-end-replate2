@@ -11,39 +11,40 @@ import {
 } from "reactstrap";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const Businessrequestin = props => {
+const BusinessRequestIn = props => {
+  console.log(props)
  //set local state
- const [requestin, setrequestin] = useState({
+ const [requestIn, setRequestIn] = useState({
   username: "",
   password: ""
  });
 
- //set requestin event
- const brequestin = e => {
+ //set requestIn event
+ const bRequestIn = e => {
   e.preventDefault();
   axiosWithAuth()
-   .post("/api/businesses/login", requestin)
+   .post("/api/businesses/login", requestIn)
    .then(res => {
     console.log(res);
     localStorage.setItem("token", res.data.token);
-    props.history.push("/api/businesses/login");
+    props.history.push("/requests");
    });
  };
 
  //handle change
  const handleChange = e => {
-  setrequestin({
-   ...requestin,
+  setRequestIn({
+   ...requestIn,
    [e.target.name]: e.target.value
   });
  };
 
  return (
-  <div className="requestin-page">
+  <div className="requestIn-page">
    <Card>
     <CardBody>
      <CardHeader tag="h3">Business Login</CardHeader>
-     <Form onSubmit={brequestin}>
+     <Form onSubmit={bRequestIn}>
       <FormGroup>
        <Label for="username" hidden>
         Username{" "}
@@ -76,4 +77,4 @@ const Businessrequestin = props => {
  );
 };
 
-export default Businessrequestin;
+export default BusinessRequestIn;
