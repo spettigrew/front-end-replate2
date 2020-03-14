@@ -13,7 +13,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const VolunteerRequestIn = props => {
  //set local state
- const [requestIn, setrequestIn] = useState({
+ const [requestIn, setRequestIn] = useState({
   username: "",
   password: ""
  });
@@ -39,7 +39,7 @@ const VolunteerRequestIn = props => {
  };
 
  return (
-  <div className="requestin-page">
+  <div className="requestIn-page">
    <Card>
     <CardBody>
      <CardHeader tag="h3">Volunteer Login</CardHeader>
