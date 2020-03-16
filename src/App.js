@@ -37,7 +37,7 @@ function App() {
       path="/business/home"
       render={props => <BusinessDashboard />}
      />
-     <PrivateRoute path="/requests" render={props => <Requests />} />
+     <Route path="/requests" render={props => <Requests />} />
     </Switch>
    </BrowserRouter>
   </main>
