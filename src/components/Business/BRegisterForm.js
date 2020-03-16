@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../css/BusinessRegisterApp.css";
 
 const BusinessRegister = props => {
  // initialState
-
+const history = useHistory()
  const [register, setRegister] = useState({
   username: "",
   password: "",
@@ -24,7 +25,7 @@ const BusinessRegister = props => {
     console.log(res.data);
     localStorage.setItem("token", res.data.token)
     console.log(props.history);
-    props.history.push("/requests");
+    history.push("/requests");
    })
    .catch(err => console.log(err));
  };
