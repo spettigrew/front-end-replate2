@@ -1,26 +1,39 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteRequest, setCurrent } from "../../utils/actions";
+import {
+    Card,  
+    CardBody,
+    CardHeader
+} from "reactstrap";
 
-const RequestItem = ({ request, deleteRequest, setCurrent }) => {
+const RequestItem = ({request, deleteRequest, setCurrent}) => {
  const onDelete = () => {
   deleteRequest(request);
  };
- return (
-  <li className="collection-item">
-   <div>
-    <p onClick={() => setCurrent(request)}>{request}</p>
+ console.log(request)
+ 
+    return (
+  <Card className="collection-item">
+   <CardBody onClick={() => setCurrent(request)}>
     <br />
-    <span className="grey-text">
-     <span className="black-text">{request}</span>
-    </span>
+             <CardHeader tag= "h3">
+        {request.type}          
+    </CardHeader>
+        <div>
+            <ul>
+           <li className="black-text">{request.description}</li>
+           <li className="black-text">{request.servings}</li>
+           <li className="black-text">{request.pickup_time}</li>
+            </ul>
+        </div>
     <a href="#!" className="secondary-content">
      <button className="delete-button" onClick={onDelete}>
       delete
      </button>
     </a>
-   </div>
-  </li>
+   </CardBody>
+  </Card>
  );
 };
 
