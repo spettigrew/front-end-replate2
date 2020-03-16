@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import {
  Card,
@@ -12,7 +13,7 @@ import {
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const BusinessRequestIn = props => {
-  console.log(props)
+  const history = useHistory()
  //set local state
  const [requestIn, setRequestIn] = useState({
   username: "",
@@ -27,7 +28,7 @@ const BusinessRequestIn = props => {
    .then(res => {
     console.log(res);
     localStorage.setItem("token", res.data.token);
-    props.history.push("/requests");
+    history.push("/requests");
    });
  };
 
