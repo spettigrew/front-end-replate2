@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {
  Card,
  CardImg,
- CardText,
  CardBody,
- CardTitle,
- CardSubtitle,
  CardHeader
 } from "reactstrap";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const VolunteerRequestIn = props => {
  //set local state
+ const history = useHistory()
  const [requestIn, setRequestIn] = useState({
   username: "",
   password: ""
@@ -22,11 +21,10 @@ const VolunteerRequestIn = props => {
  const vRequestIn = e => {
   e.preventDefault();
   axios
-   .post("https://replate2.herokuapp.com//api/volunteers/login", requestIn)
+   .post("https://replate2.herokuapp.com/api/volunteers/login", requestIn)
    .then(res => {
-    console.request(res);
     localStorage.setItem("token", res.data.token);
-    props.history.push("/volunteer-home");
+    history.push("/volunteer-home");
    });
  };
 
