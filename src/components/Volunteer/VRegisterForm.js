@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../css/VolunteerRegisterApp.css";
 
 const VolunteerRegister = props => {
  // initialState
+ const history = useHistory()
 
  const [register, setRegister] = useState({
   username: "",
@@ -20,8 +22,7 @@ const VolunteerRegister = props => {
   axios
    .post("https://replate2.herokuapp.com/api/volunteers/register", register)
    .then(res => {
-    console.request(res.data);
-    props.history.push("/register");
+  history.push("/register");
    })
    .catch(err => console.log(err));
  };
