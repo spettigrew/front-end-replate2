@@ -9,25 +9,27 @@ import {
  SEARCH_REQUESTS
 } from "./types";
 import axiosWithAuth from "./axiosWithAuth";
-import axios from "axios";
 
-export const getRequests = (res, err) => async dispatch => {
+
+export const getRequests = () => dispatch => {
  axiosWithAuth()
-  .get("/api/foodRequests/")
+  .get("/api/foodRequest/")
   .then(res => {
-   console.log(res.data);
+      console.log("data here", res.data);
+      dispatch({
+          type: GET_REQUESTS,
+          payload: res.data
+      });
+   
   })
-  .catch(err => console.log(err));
 
- dispatch({
-  type: GET_REQUESTS,
-  payload: res.data
- });
-
- dispatch({
-  type: REQUESTS_ERROR,
-  payload: err.response
- });
+  .catch(err => {
+    dispatch({
+       type: REQUESTS_ERROR,
+       payload: err.response
+   })
+  }
+ )
 };
 
 // Add(POST) new REQUEST
@@ -59,17 +61,18 @@ export const addRequest = request => async dispatch => {
 export const deleteRequest = (id, props) => async dispatch => {
  try {
   axiosWithAuth()
-   .delete(`/api/foodrequests/:${id}`)
+   .delete(`/api/foodRequest/:${id}`)
    .then(res => {
     console.log(res);
+       dispatch({
+           type: DELETE_REQUEST,
+           payload: id
+       });
     localStorage.setItem("token", res.data.token);
     props.history.push("business/home");
    });
 
-  dispatch({
-   type: DELETE_REQUEST,
-   payload: id
-  });
+
  } catch (err) {
   dispatch({
    type: REQUESTS_ERROR,
