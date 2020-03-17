@@ -10,18 +10,22 @@ import {
 } from "../utils/types";
 
 const initialState = {
- type: "",
- servings: 0,
- pickup_time: 1581066814,
- description: "Describe food to be picked up.",
- completed: false,
- business_id: null,
- volunteer_id: null
+requests: [{
+    id: "0",
+    type: "",
+    servings: 0,
+    pickup_time: 1581066814,
+    description: "Describe food to be picked up.",
+    completed: false,
+    business_id: null,
+    volunteer_id: null
+}]
 };
 
 export default (state = initialState, action) => {
  switch (action.type) {
-  case GET_REQUESTS:
+   case GET_REQUESTS:
+    console.log(action)
    return {
     ...state,
     requests: action.payload
