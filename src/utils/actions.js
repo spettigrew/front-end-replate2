@@ -58,7 +58,7 @@ export const addRequest = request => async dispatch => {
 };
 
 // Delete REQUEST from server
-export const deleteRequest = (id, props) => async dispatch => {
+export const deleteRequest = (id, props) => dispatch => {
  try {
   axiosWithAuth()
    .delete(`/api/foodRequest/:${id}`)
