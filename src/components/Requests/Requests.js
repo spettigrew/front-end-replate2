@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import RequestItem from "./RequestItem";
 import { getRequests } from "../../utils/actions";
 
-export const Requests = ({ request: { requests }, getRequests }) => {
+const Requests = ({requests, getRequests}) => {
  useEffect(() => {
   getRequests();
   // eslint-disable-next-line
  }, []);
+ console.log(requests)
 
  return (
   <ul className="collection with-header">
@@ -24,9 +25,8 @@ export const Requests = ({ request: { requests }, getRequests }) => {
 };
 
 const mapStateToProps = state => ({
- request: state.request
+ requests: state.foodRequest.requests
 });
-
 console.log(mapStateToProps);
 
 export default connect(mapStateToProps, { getRequests })(Requests);
