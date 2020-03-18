@@ -4,11 +4,12 @@ import RequestItem from "./RequestItem";
 import { getRequests } from "../../utils/actions";
 
 const Requests = ({requests, getRequests}) => {
- useEffect(() => {
-  getRequests();
-  // eslint-disable-next-line
- }, []);
- console.log(requests)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getRequests())
+    // eslint-disable-next-line
+    }, [dispatch]);
+    console.log(requests)
 
  return (
   <ul className="collection with-header">
@@ -24,9 +25,9 @@ const Requests = ({requests, getRequests}) => {
  );
 };
 
-const mapStateToProps = state => ({
- requests: state.foodRequest.requests
-});
+const mapStateToProps = state => {
+ get.requests
+};
 console.log(mapStateToProps);
 
 export default connect(mapStateToProps, { getRequests })(Requests);
