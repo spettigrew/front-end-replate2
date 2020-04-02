@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 import RequestItem from "./RequestItem";
 import { getRequests } from "../../utils/actions";
 
 const Requests = ({requests, getRequests}) => {
-    const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getRequests())
+        getRequests()
     // eslint-disable-next-line
-    }, [dispatch]);
+    }, []);
     console.log(requests)
 
  return (
@@ -27,8 +26,11 @@ const Requests = ({requests, getRequests}) => {
 };
 
 const mapStateToProps = state => {
- get.requests
+    console.log(state);
+    return {
+        requests: state.foodRequest.requests
+    }
+    
 };
-console.log(mapStateToProps);
 
 export default connect(mapStateToProps, { getRequests })(Requests);
