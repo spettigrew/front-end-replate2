@@ -18,7 +18,7 @@ const RequestItem = ({request, deleteRequest, setCurrent}) => {
    <CardBody onClick={() => setCurrent(request)}>
     <br />
              <CardHeader tag= "h3">
-        {request.type}          
+                 
     </CardHeader>
         <div>
             <ul>
